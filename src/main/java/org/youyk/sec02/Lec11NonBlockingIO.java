@@ -8,6 +8,7 @@ import org.youyk.sec02.client.ExternalServiceClient;
 /*
     To demo non-blocking IO
     Ensure that the external service is up and running
+
  */
 public class Lec11NonBlockingIO {
     private static final Logger log = LoggerFactory.getLogger(Lec11NonBlockingIO.class);
@@ -18,8 +19,12 @@ public class Lec11NonBlockingIO {
         log.info("starting");
 
         for (int i = 1; i <=5; i++) {
-            client.getProductName(i)
-                    .subscribe(Util.subscriber());
+            //publisher임
+            String name = client.getProductName(i)
+                    .block();//쓰레드를 블록시킨다. 순서대로 결과가 반환된다. concurrenct 하게 request를 보낼 수 없는데  이런 block를 쓰면 안된다. unit test에서는 사용할 수 있지만 실제로는 사용하면 안된다.
+
+            log.info(name);
+            //.subscribe(Util.subscriber());
         }
 
 
