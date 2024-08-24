@@ -19,7 +19,7 @@ public class Lec09PublisherCreatedVsExecution {
     private static Mono<String> getName(){
         log.info("entered the method");
         return Mono.fromSupplier(() -> {
-            log.info("generating name");
+            log.info("generating username");
             return Util.faker().name().firstName();
         });
     }

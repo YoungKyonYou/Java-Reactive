@@ -9,7 +9,7 @@ public class Lec08GenerateWithState {
     public static void main(String[] args) {
         /*AtomicInteger atomicInteger = new AtomicInteger(0);
         Flux.generate(synchronousSink -> {
-            String country = Util.faker().country().name();
+            String country = Util.faker().country().username();
             synchronousSink.next(country);
             atomicInteger.incrementAndGet();
             if(atomicInteger.get() == 10 || country.equalsIgnoreCase("canada")){

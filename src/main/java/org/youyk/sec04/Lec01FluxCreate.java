@@ -16,7 +16,7 @@ public class Lec01FluxCreate {
         //특정 조건을 줌으로서 멈추게 할 수 있음
 /*        Flux.create(fluxSink->{
             for(int i=0; i<10; i++){
-                fluxSink.next(Util.faker().country().name());
+                fluxSink.next(Util.faker().country().username());
             }
             fluxSink.complete();
         }).subscribe(Util.subscriber());*/

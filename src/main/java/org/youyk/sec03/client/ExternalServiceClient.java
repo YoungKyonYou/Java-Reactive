@@ -12,7 +12,7 @@ public class ExternalServiceClient extends AbstractHttpClient {
     public Flux<String> getNames(){
         return this.httpClient.get()
                 //request를 보내는 부분
-                .uri("/demo02/name/stream")
+                .uri("/demo02/username/stream")
                 //response를 받는 부분
                 .responseContent()
                 .asString();

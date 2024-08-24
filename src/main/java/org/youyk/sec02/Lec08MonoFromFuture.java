@@ -17,7 +17,7 @@ public class Lec08MonoFromFuture {
         // 나머지 부분이 완료되면 종료됩니다. 따라서 getName() 메소드의 비동기 작업이 완료되기 전에
         // 메인 스레드가 종료되어,
         // Mono의 구독 결과를 볼 수 없는 것
-        //subscribe 부분을 주석처리하고 돌려보면 "generating name"이라는 문구만 찍히는데 그러면 구독하진 않았으나 실제 일은 하는 것이다.
+        //subscribe 부분을 주석처리하고 돌려보면 "generating username"이라는 문구만 찍히는데 그러면 구독하진 않았으나 실제 일은 하는 것이다.
         // 이것은 문제가 될 수 있다. CompletableFuture는 Supplier를 받지만 Lazy하지 않다!(default가 그렇다)
 
         Mono.fromFuture(getName())
@@ -32,7 +32,7 @@ public class Lec08MonoFromFuture {
 
     private static CompletableFuture<String> getName(){
         return CompletableFuture.supplyAsync(() -> {
-            log.info("generating name");
+            log.info("generating username");
             return Util.faker().name().firstName();
         });
     }
